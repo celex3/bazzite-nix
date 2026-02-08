@@ -3,7 +3,10 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/bazzite:stable
+FROM ghcr.io/ublue-os/bazzite-nvidia-open:stable
+
+# Create /nix directory with proper permissions
+RUN install -d -m 0755 /nix
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
